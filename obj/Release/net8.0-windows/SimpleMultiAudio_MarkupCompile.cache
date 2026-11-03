@@ -4,12 +4,12 @@
 winexe
 C#
 .cs
-I:\ダウンロード\SimpleMultiAudio_fixed (5)\SimpleMultiAudio\obj\Release\net8.0-windows\
+I:\オーディオ同時再生\obj\Release\net8.0-windows\
 SimpleMultiAudio
 none
 false
 TRACE;RELEASE;NET;NET8_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
-I:\ダウンロード\SimpleMultiAudio_fixed (5)\SimpleMultiAudio\App.xaml
+I:\オーディオ同時再生\App.xaml
 11407045341
 1-1606303973
 2-1958734538

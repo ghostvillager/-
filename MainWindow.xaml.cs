@@ -27,6 +27,11 @@ namespace SimpleMultiAudio
 
         private bool _isReallyClosing = false;
 
+        // ===== 音割れ対策で変更した値 =====
+        // Bluetooth機器でも安定するようにレイテンシとバッファを大きくしています
+        private const int LatencyMs = 200;          // 元: 80
+        private const int BufferDurationMs = 1000;  // 元: 300
+
         public MainWindow()
         {
             InitializeComponent();
@@ -87,7 +92,7 @@ namespace SimpleMultiAudio
             _trayIcon = new NotifyIcon
             {
                 Icon = trayIconImage ?? System.Drawing.SystemIcons.Application,
-                Text = "複数デバイス同時再生",
+                Text = "複数デバイス同時再生 (Fixed)",
                 Visible = false
             };
 
@@ -299,11 +304,15 @@ namespace SimpleMultiAudio
                 foreach (var item in targetDevices)
                 {
                     var device = enumerator.GetDevice(item.Id);
-                    var outDevice = new WasapiOut(device, AudioClientShareMode.Shared, true, 80);
+
+                    // ===== 修正ポイント =====
+                    // レイテンシを大きくしてBluetooth機器でも音割れしにくくする
+                    var outDevice = new WasapiOut(device, AudioClientShareMode.Shared, true, LatencyMs);
+
                     var buffer = new BufferedWaveProvider(format)
                     {
                         DiscardOnBufferOverflow = true,
-                        BufferDuration = TimeSpan.FromMilliseconds(300)
+                        BufferDuration = TimeSpan.FromMilliseconds(BufferDurationMs)  // バッファも大きく
                     };
 
                     outDevice.Init(buffer);
@@ -328,7 +337,7 @@ namespace SimpleMultiAudio
                 BtnStart.Content = "更新";
                 // 総再生デバイス数 = 追加出力 + （デフォルトを選んでいれば1）
                 int totalCount = targetDevices.Count + (defaultSelected ? 1 : 0);
-                StatusText.Text = $"再生中（{totalCount}デバイス）";
+                StatusText.Text = $"再生中（{totalCount}デバイス） [Latency={LatencyMs}ms]";
 
                 // ウィンドウを開いているときは閉じない（更新を一発で完了させる）
                 // 起動時の自動開始など、もともと非表示のときだけトレイに隠す

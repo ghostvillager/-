@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "I:\\ダウンロード\\SimpleMultiAudio_fixed (5)\\SimpleMultiAudio\\SimpleMultiAudio.csproj": {}
+    "I:\\オーディオ同時再生\\SimpleMultiAudio.csproj": {}
   },
   "projects": {
-    "I:\\ダウンロード\\SimpleMultiAudio_fixed (5)\\SimpleMultiAudio\\SimpleMultiAudio.csproj": {
+    "I:\\オーディオ同時再生\\SimpleMultiAudio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "I:\\ダウンロード\\SimpleMultiAudio_fixed (5)\\SimpleMultiAudio\\SimpleMultiAudio.csproj",
+        "projectUniqueName": "I:\\オーディオ同時再生\\SimpleMultiAudio.csproj",
         "projectName": "SimpleMultiAudio",
-        "projectPath": "I:\\ダウンロード\\SimpleMultiAudio_fixed (5)\\SimpleMultiAudio\\SimpleMultiAudio.csproj",
+        "projectPath": "I:\\オーディオ同時再生\\SimpleMultiAudio.csproj",
         "packagesPath": "C:\\Users\\hases\\.nuget\\packages\\",
-        "outputPath": "I:\\ダウンロード\\SimpleMultiAudio_fixed (5)\\SimpleMultiAudio\\obj\\",
+        "outputPath": "I:\\オーディオ同時再生\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
